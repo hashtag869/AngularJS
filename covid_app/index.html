@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="js/myscript.js">
+</script>
+
+</head>
+<body ng-app="MyApp" ng-controller="MyCtrl">
+
+
+
+    <div class="container"> 
+        <div class ="jumbotron py-3" >
+        <h1 style="text-align: center;">{{title}}</h1>
+       
+          
+           
+     <p style="margin-left: 240px; margin-right: 100px;">
+         Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus. Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.
+        
+        </p>
+  
+
+
+   <!-- for all data from API -->
+
+
+   <div class="row" style="display:flex;">
+       <div class="col-md-4">
+         <div class="card">
+             <card-body>
+                 <h2 style="background-color: #e8ff19;">Confirmed Cases</h2>
+                 <h2>{{all_data.confirmed.value}}</h2>
+             </card-body>
+         </div>
+       </div>
+       <div class="col-md-4">
+        <div class="card2">
+            <card-body>
+                <h2 style="background-color: rgb(38, 122, 12);">Recovered Cases</h2>
+                <h2>{{all_data.recovered.value}}</h2>
+
+            </card-body>
+        </div>
+       </div>
+       <div class="col-md-4">
+        <div class="card3">
+            <card-body>
+                <h2 style="background-color: rgb(236, 8, 8);">Death Cases</h2>
+                <h2>{{all_data.deaths.value}}</h2>
+
+            </card-body>
+        </div>
+       </div>
+   </div>
+   <!-- end all data from API -->
+
+
+
+   <input type=" text"
+    class="form-control mt-4" 
+    placeholder="Enter country here"
+    ng-model="c"
+    ng-change="get_c_data()"
+   >
+  
+       <!-- c data -->
+       <!-- ng-if hide purpose -->
+       <div class="container"ng-if="c_data">
+       <h1 class="text_center mt-4 text-uppercase">{{c}} STATUS</h1>
+       <div class="row2" style="display:flex;">
+       <div class="col-md-4">
+        <div class="card">
+            <card-body>
+                <h2 style="background-color: #e8ff19;">Confirmed Cases</h2>
+                <h2>{{c_data.confirmed.value}}</h2>
+            </card-body>
+        </div>
+      </div>
+      <div class="col-md-4">
+       <div class="card2">
+           <card-body>
+               <h2 style="background-color: rgb(38, 122, 12);">Recovered Cases</h2>
+               <h2>{{c_data.recovered.value}}</h2>
+
+           </card-body>
+       </div>
+      </div>
+      <div class="col-md-4">
+       <div class="card3">
+           <card-body>
+               <h2 style="background-color: rgb(236, 8, 8);">Death Cases</h2>
+               <h2>{{c_data.deaths.value}}</h2>
+
+           </card-body>
+       </div>
+      </div>
+  </div>
+
+
+</div>
+
+
+       <!-- end c data -->
+   
+    </div></div>
+</body>
+</html>
